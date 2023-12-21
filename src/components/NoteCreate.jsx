@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Box, TextField, Select, Button, MenuItem } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import Tooltip from '@mui/material/Tooltip';
 
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 
@@ -89,12 +90,14 @@ const NoteCreate = ({ onCreate }) => {
         </Button>
 
             <ColorPickerButton onClick={() => setShowColorPicker(!showColorPicker)}>
-
+            <Tooltip title='Select Color' placement="top">
                 <div><ColorLensOutlinedIcon /></div>
+                </Tooltip>
+                
             </ColorPickerButton>
 
             {showColorPicker && (
-                <Select value={color} onChange={(e) => setColor(e.target.value)}>
+                <Select value={color} onChange={(e) => setColor(e.target.value)} size='small' width='50px'>
                     <MenuItem value="#ee382eb2">Red</MenuItem>
                     <MenuItem value="#f05db3">Pink</MenuItem>
                     <MenuItem value="#67ec7965">Green</MenuItem>

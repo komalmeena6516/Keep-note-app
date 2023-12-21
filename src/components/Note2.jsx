@@ -1,10 +1,11 @@
-import { Button, Card, CardActions, CardContent, Typography } from '@mui/material'
+import { Button, Card, CardActions, CardContent, Typography, Select, MenuItem, Box } from '@mui/material'
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import { DeleteOutlineOutlined as Delete } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
+import Tooltip from '@mui/material/Tooltip';
 
 
 const Note2 = ({ id, title, content, color, onDelete, onEdit, onColorChange }) => {
@@ -18,12 +19,15 @@ const Note2 = ({ id, title, content, color, onDelete, onEdit, onColorChange }) =
     setIsEditing(false);
   };
 
-  // const handleColorChange = (e) => {
-  //   onColorChange(id, e.target.value);
-  // };
+  const handleColorChange = (e) => {
+    onColorChange(id, e.target.value);
+  };
 
   return (
-    <Card style={{ background: `${color}`, padding: '10px' }}>
+    <Box sx={{ minWidth: 275 }}>
+    
+ 
+    <Card variant="outlined" style={{ background: `${color}`, padding: '10px' }}>
         {isEditing ?
           (
             <>
@@ -51,19 +55,36 @@ const Note2 = ({ id, title, content, color, onDelete, onEdit, onColorChange }) =
                 <Typography variant='p'>{content}</Typography>
               </CardContent>
               <CardActions>
+              <Tooltip title='Edit' placement="top">
                 <EditIcon style={{ marginLeft: 'auto' }}  fontSize="small" onClick={() => setIsEditing(true)} />
-                <Delete
+</Tooltip>
+                <Tooltip title='Delete' placement="top">
+                   <Delete
                   fontSize="small"
                   onClick={() => onDelete(id)}
                 />
+                </Tooltip>
+               
+
+<Select value={color} size='small' onChange={handleColorChange} >
+                    <MenuItem value="#ee382eb2">Red</MenuItem>
+                    <MenuItem value="#f05db3">Pink</MenuItem>
+                    <MenuItem value="#67ec7965">Green</MenuItem>
+                    <MenuItem value="#3d59e365">skyblue</MenuItem>
+                    <MenuItem value="#ffff00">Yellow</MenuItem>
+                    <MenuItem value="#ff00ff">Magenta</MenuItem>
+                    <MenuItem value="#926ff3">Purple</MenuItem>
+                    <MenuItem value="#ed9e36">Orange</MenuItem>
+                    {/* Add more colors as needed */}
+                </Select>
 
               </CardActions>
             </>
 
           )
         }
-
     </Card >
+    </Box>
   )
 };
 

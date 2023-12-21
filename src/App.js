@@ -18,6 +18,7 @@ flex-wrap: wrap;
 justify-content: center;
 gap: 20px;
 align-items: center;
+margin: 10px 20px;
 `;
 
 const App = () => {
@@ -59,7 +60,9 @@ const App = () => {
   };
 
   return (
-<Box>
+<div>
+
+
 
 <Header />
 <NoteCreate onCreate={addNote} />
@@ -81,7 +84,7 @@ const App = () => {
 </AppContainer>
     
    
-</Box>
+</div>
     
   );
 };
