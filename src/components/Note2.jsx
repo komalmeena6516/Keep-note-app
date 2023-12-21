@@ -24,7 +24,7 @@ const Note2 = ({ id, title, content, color, onDelete, onEdit, onColorChange }) =
   };
 
   return (
-    <Box sx={{ minWidth: 275 }}>
+    <Box sx={{ minWidth: 275, maxWidth: 350}}>
     
  
     <Card variant="outlined" style={{ background: `${color}`, padding: '10px' }}>
@@ -37,7 +37,7 @@ const Note2 = ({ id, title, content, color, onDelete, onEdit, onColorChange }) =
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
           />
-          <textarea cols='30' style={{display:'block', border:'none'}}
+          <textarea cols='30' rows='5' style={{display:'block', border:'none'}}
             value={editedContent}
             onChange={(e) => setEditedContent(e.target.value)}
           />
@@ -51,8 +51,8 @@ const Note2 = ({ id, title, content, color, onDelete, onEdit, onColorChange }) =
           ) : (
             <>
               <CardContent>
-                <Typography variant='h6' >{title}</Typography>
-                <Typography variant='p'>{content}</Typography>
+                <h4 className='card-title'>{title}</h4>
+                <p className='card-data'>{content}</p>
               </CardContent>
               <CardActions>
               <Tooltip title='Edit' placement="top">

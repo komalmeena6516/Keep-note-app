@@ -15,10 +15,12 @@ const Container = styled(Box)`
     margin-top:30px;
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
     border-color: #e0e0e0;
-    width: 600px;
+    max-width: 600px;
     border-radius: 8px;
     min-height: 30px;
     padding: 10px 15px;
+
+    
 `
 // const ColorPicker = styled(Select)`
 // margin-top: 5px;
@@ -85,7 +87,7 @@ const NoteCreate = ({ onCreate }) => {
 
 
             <NoteAction>
-            <Button  size="small" onClick={handleCreate}>
+            <Button style={{ marginLeft: 'auto' }} size="small" onClick={handleCreate}>
             Create Note
         </Button>
 
